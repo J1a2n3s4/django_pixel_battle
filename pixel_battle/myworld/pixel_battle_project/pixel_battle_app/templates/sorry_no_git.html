@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(100,100,100);
+            text-align: center;
+            color: rgb(255, 250, 235);
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1{
+            font-size: 3rem;
+        }
+        p{
+            font-size: larger;
+        }
+        .w{
+            background-color: whitesmoke;
+        }
+        .r{
+            background-color: red;
+        }
+        .g{
+            background-color: green;
+        }
+        .b{
+            background-color: rgb(17, 0, 255);
+        }
+        .a{
+            background-color: gray;
+        }
+        .y{
+            background-color: yellow;
+        }
+        .pixel{
+            width: 10px;
+            height: 10px;
+        }
+        td{
+            margin: 0;
+            padding: 0;
+        }
+        table{
+            margin: auto;
+            background-color: black;
+        }
+        ol{
+            width: 5%;
+            margin: auto;
+            background-color: black;
+            
+        }
+        li{
+            text-align: right;
+        }
+        input{
+            background-color: black;
+            color: whitesmoke;
+        }
+        button{
+            background-color: black;
+            color: whitesmoke;
+        }
+        footer{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            background-color: rgb(50, 50, 50);
+            border: 2px solid black;
+        }
+        header{
+            background-color: rgb(50, 50, 50);
+            border: 2px solid black;
+        }
+        main{
+            background-color: rgb(90,90,90);
+            border-left: 2px solid black;
+            border-right: 2px solid black;
+
+        }
+        .smallfont{
+            font-size: medium;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PIXEL BATTLE</h1>
+        <h2>A simpler copy of Pixel Place.</h3>
+        <br>
+        </header>
+        <main>
+            <br>
+            <p>Dear mr Klein, I'm sincerely sorry for not creating and developing with a git repository.<br>
+            I assure you my progress was made slowly and not instantly. 
+            </p>
+            <img src="{% static 'no_git.png' %}" width="400px" height="400px">
+        </main>
+    
+        <footer>
+    
+            <p>Made by Jędrzej Burczyński, 2025</p>
+        </footer>
+</body>
+</html>

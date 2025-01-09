@@ -1,2 +1,3 @@
 # django_pixel_battle
-na 10 stycznia
+
+Na dole głównej strony jest link do przeprosin za brak gita

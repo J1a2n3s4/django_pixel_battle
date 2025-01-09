@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PB Main Page</title>
+    <script>
+        function check_pixel_pos(){
+            x_pos=document.getElementById("x").value - 1
+            y_pos=document.getElementById("y").value - 1 
+            for (var i = 0, row; row = document.getElementById("canvas").rows[i]; i++) {
+                for (var j = 0, col; col = row.cells[j]; j++) {
+                    col.style.border = "none"
+                }  
+            }
+
+            color = document.getElementById("color").value
+
+            document.getElementById("canvas").rows[y_pos].cells[x_pos].style.border = "1px solid "+color
+            console.log("checked pos")
+        }
+    </script>
+    <style>
+        body{
+            background-color: rgb(100,100,100);
+            text-align: center;
+            color: rgb(255, 250, 235);
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1{
+            font-size: 3rem;
+        }
+        p{
+            font-size: larger;
+        }
+        .w{
+            background-color: whitesmoke;
+        }
+        .r{
+            background-color: red;
+        }
+        .g{
+            background-color: green;
+        }
+        .b{
+            background-color: rgb(17, 0, 255);
+        }
+        .a{
+            background-color: gray;
+        }
+        .y{
+            background-color: yellow;
+        }
+        .pixel{
+            width: 10px;
+            height: 10px;
+        }
+        td{
+            margin: 0;
+            padding: 0;
+        }
+        table{
+            margin: auto;
+            background-color: black;
+        }
+        ol{
+            width: 5%;
+            margin: auto;
+            background-color: black;
+            
+        }
+        li{
+            text-align: right;
+        }
+        input{
+            background-color: black;
+            color: whitesmoke;
+        }
+        button{
+            background-color: black;
+            color: whitesmoke;
+        }
+        footer{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            background-color: rgb(50, 50, 50);
+            border: 2px solid black;
+        }
+        header{
+            background-color: rgb(50, 50, 50);
+            border: 2px solid black;
+        }
+        main{
+            background-color: rgb(90,90,90);
+            border-left: 2px solid black;
+            border-right: 2px solid black;
+
+        }
+        .smallfont{
+            font-size: medium;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+    <h1>PIXEL BATTLE</h1>
+    <h2>A simpler copy of Pixel Place.</h3>
+    </header>
+    
+
+    <main>
+    <br>
+    <br>
+    <table id="canvas">
+        
+        {% for array in two_d %}
+        <tr>
+        {% for content in array %}
+            <td><div class="{{content}} pixel"></div></td>
+        {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <br>
+    <br><br>
+
+    {{badpassword}}
+
+    <h2>Add your pixel here.</h2>
+    <p class="smallfont">(Only one pixel per IP adress)</p>
+    <form action="" method="post" enctype="multipart/form-data">
+        
+        {% csrf_token %}
+        <p>Select pixel color.</p>
+        <select name="color" id="color">
+            <option value="white">WHITE</option>
+            <option value="red">RED</option>
+            <option value="green">GREEN</option>
+            <option value="blue">BLUE</option>
+            <option value="gray">GRAY</option>
+            <option value="yellow">YELLOW</option>
+        </select>
+
+        <p>Set pixel position.</p>
+        
+        <label for="x">X</label>
+        <input type="number" name="x" max="100" min="1" id="x" value="1">
+        <label for="y">Y</label>
+        <input type="number" name="y" max="50" min="1" id="y" value="1">
+        <br>
+        <br>
+        
+
+        <label for="username">Your username:</label>
+        <input type="text" name="username">
+        <br>
+        <label for="password">User password:</label>
+        <input type="text" name="password">
+        <br>
+        <br>
+        <br>
+        <button type="submit">SEND THE PIXEL</button>
+        
+        
+    </form>
+    <br>
+    
+
+    <br>
+        <br>
+        <button onclick="check_pixel_pos()" id="checkbtn">CHECK NEW PIXEL POSITION</button>
+    <br><br>
+    <form action="sorry"method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <button>Show apologies for no git history</button>
+    </form>
+    <br><br>
+    </main>
+    
+
+
+    <footer>
+
+        <p>Made by Jędrzej Burczyński, 2025</p>
+    </footer>
+
+</body>
+</html>
